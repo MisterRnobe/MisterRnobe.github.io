@@ -56,7 +56,7 @@ function makeDescription(me) {
     $('<div class="description-div p-1" style="top: '+top+'px; left: '+left+'px" id="description">'+text+'</div>').appendTo(me.parent());
 }
 function doOnStart() {
-    const descField = $('#description');
+    const descField = $('#cities');
     const text = descField.text();
     const str = "Доступны: "+ Object.keys(desc).map(function (val) {
         return desc[val].name;
