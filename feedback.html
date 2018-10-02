@@ -7,6 +7,37 @@
 <title>Мой сайт</title>
 <link href="css/bootstrap-4.0.0.css" rel="stylesheet" type="text/css">
 <link href="css/custom.css" rel="stylesheet" type="text/css">
+    <style>
+        label
+        {
+            text-align: left !important;
+        }
+    </style>
+    <script>
+        function verifyInputs() {
+            $('.is-invalid').removeClass('is-invalid');
+            const name = $('#user_name');
+            if (name.val().length === 0)
+            {
+                name.addClass('is-invalid');
+                return false;
+            }
+            const email = $('#user_email');
+            if (email.val().length === 0)
+            {
+                email.addClass('is-invalid');
+                return false;
+            }
+            onSuccess();
+        }
+        function onSuccess() {
+            $('form').remove();
+            const div = $('#response');
+
+            div.text('Ваше предложение отправлено. Вы можете перейти на главную страницу по этой ');//.text();
+            div.append('<a href="index.html">ссылке</a>');
+        }
+    </script>
 </head>
 
 <body class="text-center">
@@ -23,11 +54,41 @@
       </header>
 
       <main role="main" class="inner cover">
-        <h1 class="cover-heading">Упс.</h1>
-        <p class="lead">Пока здесь ничего нет. Но скоро появится.</p>
-        <!---<p class="lead">
-          <a href="#" class="btn btn-lg btn-secondary">Посмотреть</a>
-        </p>--->
+        <h1 class="cover-heading">Форма обратной связи</h1>
+          <div class="col-md-12 text-left" id="response"></div>
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="user_name">Ваше имя: </label>
+                    <input type="text" class="form-control" id="user_name" placeholder="Введите имя">
+                    <div class="invalid-feedback" id="name-invalid">
+                        Необходимо ввести имя!
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="user_email">Ваша электронная почта: </label>
+                    <input type="text" class="form-control" id="user_email" placeholder="Введите почту">
+                    <div class="invalid-feedback" id="email-invalid">
+                        Необходимо указать почту!
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="user_wishes">Ваши пожелания: </label>
+                    <textarea class="form-control" id="user_wishes" rows="4" placeholder="Не жалейте слов...">
+                    </textarea>
+                </div>
+            </div>
+            <div class="form-row justify-content-end">
+                <div class="col-md-4">
+                    <button class="btn btn-block " type="button" onclick="verifyInputs()">
+                        Отправить
+                    </button>
+                </div>
+            </div>
+        </form>
+
       </main>
 
         <footer class="mastfoot mt-auto">
