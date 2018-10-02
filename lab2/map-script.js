@@ -55,3 +55,12 @@ function makeDescription(me) {
     const left = parseInt(str.substr(0, str.length-2)) + 10;
     $('<div class="description-div p-1" style="top: '+top+'px; left: '+left+'px" id="description">'+text+'</div>').appendTo(me.parent());
 }
+function doOnStart() {
+    const descField = $('#description');
+    const text = descField.text();
+    const str = "Доступны: "+ Object.keys(desc).map(function (val) {
+        return desc[val].name;
+    }).join(", ") + ".";
+    descField.text(text + str);
+}
+doOnStart();
