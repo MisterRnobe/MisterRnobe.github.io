@@ -1,6 +1,6 @@
 # https://git-scm.com/docs/gitignore
 # https://help.github.com/articles/ignoring-files
 # Example.gitignore files : https://github.com/github/gitignore
-_notes/
-/bower_components/
-/node_modules/
+.idea/
+*.iml
+"\320\241\320\260\320\271\321\202.iml"

@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Мой сайт</title>
+<link href="../css/bootstrap-4.0.0.css" rel="stylesheet" type="text/css">
+<link href="../css/custom.css" rel="stylesheet" type="text/css">
+    <link href="lab2.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="text-center">
+	<div class="cover-container d-flex p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link" href="../index.html">Домашняя страница</a>
+            <a class="nav-link active" href="../works.html">Работы</a>
+            <a class="nav-link" href="../feedback.html">Обратная связь</a>
+          </nav>
+        </div>
+      </header>
+
+      <main role="main" class="inner cover">
+          <div>
+              <h2>Карта России</h2>
+              <div class="map-div mt-3">
+                  <img src="../images/russia_1.png" width="600" height="329">
+                  <div class="city-div" id="msc-div"></div>
+                  <div class="city-div" id="spb-div"></div>
+                  <div class="city-div" id="kzn-div"></div>
+                  <div class="city-div" id="prm-div"></div>
+                  <div class="city-div" id="vvt-div"></div>
+                  <div class="city-div" id="knd-div"></div>
+              </div>
+          </div>
+          <div class="pt-5">
+              <h2>
+                  Визуальные эффекты
+              </h2>
+              <h6>Наведите на картинку, чтобы запустить анимацию</h6>
+              <div class="d-flex justify-content-between pt-3">
+                  <div>
+                    <img src="http://photocasa.ru/uploads/posts/2014-08/1409349431_polina-7945.jpg" id="left-picture" width="175" height="175" >
+                  </div>
+                  <div>
+                      <img src="http://photocasa.ru/uploads/posts/2014-08/1409349431_polina-7945.jpg" id="center-picture" width="175" height="175" >
+                  </div>
+                  <div>
+                      <img src="http://photocasa.ru/uploads/posts/2014-08/1409349431_polina-7945.jpg" id="right-picture" width="175" height="175" >
+                  </div>
+              </div>
+          </div>
+          <div class="pt-5">
+              <h2>Демонстрация работы со слоями</h2>
+              <div class="layers-wrapper" style="height: 308px;">
+                  <div style="position: absolute; top: 0; left: 0; z-index: 1;" id="first-layer">
+                      <img src="https://xgm.guru/files/1565/174851/Picture.png" height="308" width="590">
+                  </div>
+                  <div style="position: absolute;left: 30%; top: 30%; z-index: 2" id="second-layer">
+                      <svg>
+                          <path id="my_path" fill="transparent" ></path>
+                          <text>
+                              <textPath style="fill: white" xlink:href="#my_path">Этот текст плывет по волне.</textPath>
+                          </text>
+                      </svg>
+                  </div>
+                  <div id ="third-layer" style="position: absolute; top: 30%; left: 30%; z-index: 3">
+                      <img src="https://img0.liveinternet.ru/images/attach/c/10/127/324/127324156_4597708thumb.png" width="90" height="90">
+                  </div>
+              </div>
+              <div class="d-flex justify-content-between">
+                  <div class="d-flex flex-column">
+                      <button type="button" class="mb-2 mt-2" onclick="moveLayer('first-layer', -1);">Первый слой назад</button>
+                      <button type="button" onclick="moveLayer('first-layer', 1);">Первый слой вперед</button>
+                  </div>
+                  <div class="d-flex flex-column">
+                      <button type="button" class="mb-2 mt-2" onclick="moveLayer('second-layer', -1);">Второй слой назад</button>
+                      <button type="button" onclick="moveLayer('second-layer', 1);">Второй слой вперед</button>
+                  </div>
+                  <div class="d-flex flex-column">
+                      <button type="button" class="mb-2 mt-2" onclick="moveLayer('third-layer', -1);">Третий слой назад</button>
+                      <button type="button" onclick="moveLayer('third-layer', 1);">Третий слой вперед</button>
+                  </div>
+              </div>
+          </div>
+          <footer class="mastfoot mt-4">
+              <div class="inner">
+                  <p>Сайт сделал: <a href="https://vk.com/nikita1402">Медведев Никита</a>, студент группы ИКБО-01-15.</p>
+              </div>
+          </footer>
+      </main>
+
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="http://bootstrap-4.ru/docs/4.1/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="http://bootstrap-4.ru/docs/4.1/assets/js/vendor/popper.min.js"></script>
+    <script src="http://bootstrap-4.ru/docs/4.1/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+    <script src="map-script.js"></script>
+    <script src="filter-script.js"></script>
+    <script src="layers-script.js"></script>
+</body>
+</html>

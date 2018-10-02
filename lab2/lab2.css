@@ -1,0 +1,35 @@
+:root
+{
+    --no-mouse-color: transparent;
+    --mouse-color: darkred;
+}
+.map-div{
+    position: relative;
+}
+.city-div
+{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--no-mouse-color);
+    border-radius: 10px;
+}
+.description-div
+{
+    position: absolute;
+    background: gray;
+    border: black 1px solid;
+    width: auto;
+    border-radius: 10px;
+}
+.filtered
+{
+    filter: none;
+}
+html, body{
+    height: auto !important;
+}
+.layers-wrapper
+{
+    position: relative;
+}
