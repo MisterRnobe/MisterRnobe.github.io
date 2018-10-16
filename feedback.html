@@ -12,23 +12,33 @@
         {
             text-align: left !important;
         }
+        html, body
+        {
+            height: unset;
+        }
     </style>
     <script>
         function verifyInputs() {
             $('.is-invalid').removeClass('is-invalid');
             const name = $('#user_name');
+            let failed = false;
             if (name.val().length === 0)
             {
                 name.addClass('is-invalid');
-                return false;
+                failed = true;
             }
             const email = $('#user_email');
             if (email.val().length === 0)
             {
                 email.addClass('is-invalid');
+                failed = true;
+            }
+            if (failed)
+                return false;
+            else {
+                onSuccess();
                 return false;
             }
-            onSuccess();
         }
         function onSuccess() {
             $('form').remove();
@@ -53,7 +63,7 @@
         </div>
       </header>
 
-      <main role="main" class="inner cover">
+      <main role="main" class="inner cover mt-3">
         <h1 class="cover-heading">Форма обратной связи</h1>
           <div class="col-md-12 text-left" id="response"></div>
         <form>
@@ -88,6 +98,9 @@
                 </div>
             </div>
         </form>
+          <div class="mt-5 mb-3" style="cursor: pointer">
+              <img src="images/banner1.gif" height="100" width="157" onclick="location.href = location.host;">
+          </div>
 
       </main>
 
