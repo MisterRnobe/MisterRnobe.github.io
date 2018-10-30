@@ -37,9 +37,13 @@ function setList() {
 }
 function onSearch() {
     const val = $('#search-select').val();
+    const newWindow = $('#new-window').prop('checked');
     const url = search.find(function (element) {
         return val === element.name;
-    }).url;
-    location.href = url + $('#search-input').val();
+    }).url + $('#search-input').val();
+    if (newWindow)
+        window.open(url);
+    else
+        location.href = url;
 }
 setList();

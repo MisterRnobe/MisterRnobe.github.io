@@ -27,6 +27,13 @@
             if (email.val().length === 0)
             {
                 email.addClass('is-invalid');
+                $('#email-invalid').text('Необходимо указать почту!');
+                failed = true;
+            }
+            else if (!validateEmail(email.val()))
+            {
+                email.addClass('is-invalid');
+                $('#email-invalid').text('Укажите верный адрес почты!');
                 failed = true;
             }
             if (failed)
@@ -35,6 +42,15 @@
                 onSuccess();
                 return false;
             }
+        }
+        function validateEmail(email)
+        {
+            const regex = /^[-\w.]+@([A-z0-9][-A-z0-9]+.)+[A-z]{2,4}$/;
+
+            const m = regex.exec(email);
+            console.log(m);
+            return m !== null;
+
         }
         function onSuccess() {
             $('form').remove();
