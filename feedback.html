@@ -12,10 +12,6 @@
         {
             text-align: left !important;
         }
-        html, body
-        {
-            height: unset;
-        }
     </style>
     <script>
         function verifyInputs() {
@@ -116,5 +112,25 @@
     <script>window.jQuery || document.write('<script src="http://bootstrap-4.ru/docs/4.1/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="http://bootstrap-4.ru/docs/4.1/assets/js/vendor/popper.min.js"></script>
     <script src="http://bootstrap-4.ru/docs/4.1/dist/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function sendAjax() {
+            $.ajax({
+                url: '/lab6/session.php',
+                type: 'POST',
+                success: function (data) {
+                    console.log(data);
+                    fillFields(data)
+                }
+            });
+        }
+        function fillFields(data) {
+            if (typeof data.login === 'undefined')
+                return;
+            $('#user_name').val(data.name).attr("readonly","");
+            $('#user_email').val(data.email).attr("readonly","");
+        }
+        sendAjax();
+    </script>
 </body>
 </html>
